@@ -1,0 +1,120 @@
+# examen 2
+USE [master]
+GO
+/****** Object:  Database [Examen2]    Script Date: 23/3/2024 11:48:59 ******/
+CREATE DATABASE [Examen2]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Examen2', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS02\MSSQL\DATA\Examen2.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Examen2_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS02\MSSQL\DATA\Examen2_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT, LEDGER = OFF
+GO
+ALTER DATABASE [Examen2] SET COMPATIBILITY_LEVEL = 160
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Examen2].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Examen2] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Examen2] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Examen2] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Examen2] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Examen2] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Examen2] SET AUTO_CLOSE ON 
+GO
+ALTER DATABASE [Examen2] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Examen2] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Examen2] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Examen2] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Examen2] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Examen2] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Examen2] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Examen2] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Examen2] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [Examen2] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Examen2] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Examen2] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Examen2] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Examen2] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Examen2] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Examen2] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Examen2] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [Examen2] SET  MULTI_USER 
+GO
+ALTER DATABASE [Examen2] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Examen2] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Examen2] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Examen2] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Examen2] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [Examen2] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+ALTER DATABASE [Examen2] SET QUERY_STORE = ON
+GO
+ALTER DATABASE [Examen2] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30), DATA_FLUSH_INTERVAL_SECONDS = 900, INTERVAL_LENGTH_MINUTES = 60, MAX_STORAGE_SIZE_MB = 1000, QUERY_CAPTURE_MODE = AUTO, SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON)
+GO
+USE [Examen2]
+GO
+/****** Object:  Table [dbo].[encuesta]    Script Date: 23/3/2024 11:48:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[encuesta](
+	[numenc] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](50) NULL,
+	[apellidos] [varchar](50) NULL,
+	[fechanaci] [varchar](50) NULL,
+	[edad] [varchar](50) NULL,
+	[correo] [varchar](50) NULL,
+	[carro] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[numenc] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[encuesta] ON 
+
+INSERT [dbo].[encuesta] ([numenc], [nombre], [apellidos], [fechanaci], [edad], [correo], [carro]) VALUES (8, N'jeremy', N'loria', N'Mar 14 2000 12:00AM', N'24', N'j@hotmail.com', N'Si')
+INSERT [dbo].[encuesta] ([numenc], [nombre], [apellidos], [fechanaci], [edad], [correo], [carro]) VALUES (9, N'karolinne', N'Perez', N'Jul 11 1995 12:00AM', N'28', N'l@hotmail.com', N'Si')
+INSERT [dbo].[encuesta] ([numenc], [nombre], [apellidos], [fechanaci], [edad], [correo], [carro]) VALUES (10, N'Sharon', N'alvarado', N'Sep 20 1998 12:00AM', N'25', N'b@hotmail.com', N'No')
+INSERT [dbo].[encuesta] ([numenc], [nombre], [apellidos], [fechanaci], [edad], [correo], [carro]) VALUES (11, N'luis', N'perez', N'Nov 25 2002 12:00AM', N'22', N'm@gmail.com', N'No')
+INSERT [dbo].[encuesta] ([numenc], [nombre], [apellidos], [fechanaci], [edad], [correo], [carro]) VALUES (12, N'Eva', N'martinez', N'Dec  3 1994 12:00AM', N'30', N'j@hotmail.com', N'Si')
+INSERT [dbo].[encuesta] ([numenc], [nombre], [apellidos], [fechanaci], [edad], [correo], [carro]) VALUES (13, N'Eva', N'martinez', N'Dec  3 1994 12:00AM', N'30', N'j@hotmail.com', N'Si')
+INSERT [dbo].[encuesta] ([numenc], [nombre], [apellidos], [fechanaci], [edad], [correo], [carro]) VALUES (14, N'pablo', N'lopez', N'Aug  5 1998 12:00AM', N'26', N'munin@hotmail.es', N'Si')
+INSERT [dbo].[encuesta] ([numenc], [nombre], [apellidos], [fechanaci], [edad], [correo], [carro]) VALUES (16, N'karolina', N'calderon', N'May 15 1990 12:00AM', N'34', N'k@hotmail.es', N'Si')
+SET IDENTITY_INSERT [dbo].[encuesta] OFF
+GO
+USE [master]
+GO
+ALTER DATABASE [Examen2] SET  READ_WRITE 
+GO
